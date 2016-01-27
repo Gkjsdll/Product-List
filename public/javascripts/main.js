@@ -27,7 +27,6 @@ function addProduct(e){
     newItemContents.append($('<p>').text(data.count).addClass("col-xs-3"));
     newItem.append(newItemContents);
     $productList.append(newItem);
-    // console.log("_id:", data._id);
   })
   .fail(function(err){
     console.log("err:",err);
