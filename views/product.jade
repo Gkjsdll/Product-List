@@ -20,15 +20,18 @@ block content
           input#itemCount(type="number" step="1" class="col-xs-1" value=item.count placeholder=item.count required)
           input(type="submit" class="col-xs-2" value="Update" required)
   div.container
-    ul#item
+    ul#item.row
       li(data-id= item.id)
-        p.no-select(class="col-xs-3") Name: #{item.name}
-        p.no-select(class="col-xs-3") Desc: #{item.desc}
-        p.no-select(class="col-xs-3") Cost: #{item.cost}
+        p.no-select(class="col-xs-3") Item: #{item.name}
+        p.no-select(class="col-xs-3") Description: #{item.desc}
+        p.no-select(class="col-xs-3") Cost: $#{Number(item.cost).toFixed(2)}
         p.no-select(class="col-xs-3") Count: #{item.count}
-    a(href="/")
-      button(value="Back to List") Back to List
-    button#delete.glyphicon.glyphicon-trash
+    div.row
+      img(src= item.image)#itemImage
+    div.row
+      a(href="/")
+        button(value="Back to List") Back to List
+      button#delete.glyphicon.glyphicon-trash
   
 block scripts
   script(type="text/javascript", src="/javascripts/product.js")

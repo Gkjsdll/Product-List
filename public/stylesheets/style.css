@@ -87,3 +87,7 @@ input:focus {
   font-size: 20px;
   text-align: center;
 }
+
+#secondHeaders {
+  margin-top: 5px;
+}

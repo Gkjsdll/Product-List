@@ -31,3 +31,8 @@ button {
   padding: 4px 4px 4px 4px;
   margin-left: 24px;
 }
+
+#itemImage {
+  max-height: 400px;
+  max-width: 80%;
+}

@@ -8,6 +8,7 @@ router.post("/", function(req, res, next){
     name: req.body.name,
     desc: req.body.desc,
     cost: req.body.cost,
+    image: req.body.image,
     count: req.body.count
   })
 
