@@ -12,7 +12,7 @@ block content
         label(class="col-xs-3") Product Description
         label(class="col-xs-3") Cost (USD)
         label(class="col-xs-1") Quantity
-      form#addProduct
+      form#updateItem
         div.row
           input#itemName(type="text" class="col-xs-3" value=item.name placeholder=item.name required)
           input#itemDesc(type="text" class="col-xs-3" value=item.desc placeholder=item.desc required)
@@ -21,10 +21,11 @@ block content
           input(type="submit" class="col-xs-2" value="Update" required)
   div.container
     ul#item
-      li.no-select(class="col-xs-3") Name: #{item.name}
-      li.no-select(class="col-xs-3") Desc: #{item.desc}
-      li.no-select(class="col-xs-3") Cost: #{item.cost}
-      li.no-select(class="col-xs-3") Count: #{item.count}
+      li(data-id= item.id)
+        p.no-select(class="col-xs-3") Name: #{item.name}
+        p.no-select(class="col-xs-3") Desc: #{item.desc}
+        p.no-select(class="col-xs-3") Cost: #{item.cost}
+        p.no-select(class="col-xs-3") Count: #{item.count}
     a(href="/")
       button(value="Back to List") Back to List
   

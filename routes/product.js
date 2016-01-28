@@ -13,7 +13,7 @@ router.post("/", function(req, res, next){
 
   newItem.save(function (err, savedItem) {
     if (err) return console.error(err);
-    res.send(savedItem); //also send ID to be attatched to the DOM as data("_id", id)
+    res.send(savedItem);
   });
 
 })
@@ -26,8 +26,17 @@ router.get('/:productId', function(req, res, next) {
 });
 
 router.put("/:productId", function(req, res, next){
-
-  res.send("Put received:", [req.body, {productId}]);
+  console.log("*** Put request received for", req.params.productId);
+  console.log("*** req.body", req.body);
+  Item.findById(req.params.productId, function(err, item){
+    if(err) return console.error(err);
+    console.log("req.data", req.body);
+    item.update(req.body, function(err, raw){
+      if (err) return console.error(err);
+      console.log('The raw response from Mongo was ', raw);
+    });
+  })
+  res.send("Put received:", req.params.productId);
 });
 
 module.exports = router;
