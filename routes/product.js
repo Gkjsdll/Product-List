@@ -26,17 +26,23 @@ router.get('/:productId', function(req, res, next) {
 });
 
 router.put("/:productId", function(req, res, next){
-  console.log("*** Put request received for", req.params.productId);
-  console.log("*** req.body", req.body);
   Item.findById(req.params.productId, function(err, item){
     if(err) return console.error(err);
-    console.log("req.data", req.body);
     item.update(req.body, function(err, raw){
       if (err) return console.error(err);
-      console.log('The raw response from Mongo was ', raw);
     });
   })
   res.send("Put received:", req.params.productId);
 });
+
+router.delete("/:productId", function(req, res, next){
+  Item.findById(req.params.productId, function(err, item){
+    if(err) return console.error(err);
+    res.send("Item removed.");
+  })
+  .remove(function(err, res){
+    if(err) return  console.error(err);
+  })
+})
 
 module.exports = router;
