@@ -22,7 +22,12 @@ block content
   div.container
     ul#productList
       each item in items
-        li(data-id= item.id) #{item.name} #{item.desc} #{item.count} #{item.cost}
+        li(data-id= item.id)
+          div.row
+            p.col-xs-3 #{item.name}
+            p.col-xs-3 #{item.desc}
+            p.col-xs-3 #{item.count}
+            p.col-xs-3 #{item.cost}
   
 block scripts
   script(type="text/javascript", src="/javascripts/main.js")
