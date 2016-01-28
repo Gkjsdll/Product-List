@@ -14,7 +14,7 @@ function init(){
 
 function addProduct(e){
   e.preventDefault();
-  if($itemImage.val() && ($itemImage.val().slice($itemImage.val().lastIndexOf('.')) === ".png" || $itemImage.val().slice($itemImage.val().lastIndexOf('.')) === ".jpg")){
+  if($itemImage.val() && ($itemImage.val().slice($itemImage.val().lastIndexOf('.')) === ".png" || $itemImage.val().slice($itemImage.val().lastIndexOf('.')) === ".jpg"  || $itemImage.val().slice($itemImage.val().lastIndexOf('.')) === ".gif")){
     $.post("/product", {
       name: $('#itemName').val(),
       desc: $('#itemDesc').val(),
