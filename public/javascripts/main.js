@@ -19,7 +19,7 @@ function addProduct(e){
     count: $('#itemCount').val()})
   .success(function(data){
     console.log("success:", data);
-    var newItem = $("<li>").data("_id", data._id);
+    var newItem = $("<li>").data("id", data._id);
     var newItemContents = $('<div>').addClass("row");
     newItemContents.append($('<p>').text(data.name).addClass("col-xs-3"));
     newItemContents.append($('<p>').text(data.desc).addClass("col-xs-3"));
@@ -35,5 +35,6 @@ function addProduct(e){
 
 function productClick(e){
   e.stopPropagation();
-  console.log("_id:", $(this).closest('li').data("_id"));
+  var id = $(this).closest('li').data("id");
+  location.href = "/product/"+id;
 }

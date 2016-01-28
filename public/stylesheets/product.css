@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+}
+
+* {
+  list-style: none;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#item li:hover {
+  color: black;
+  cursor: default;
+}
+
+button {
+  color: black;
+  margin-top: 24px;
+}

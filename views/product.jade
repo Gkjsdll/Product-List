@@ -1,29 +1,32 @@
 extends layout
 
+block links
+  link(rel='stylesheet', href='/stylesheets/product.css')
+
 block content
   div.jumbotron
     div.container
-      h2 Add product
+      h2 Edit product
       div.row
-        label(class="col-xs-4") Product Name
-        label(class="col-xs-4") Cost (USD)
-        label(class="col-xs-2") Quantity
+        label(class="col-xs-3") Product Name
+        label(class="col-xs-3") Product Description
+        label(class="col-xs-3") Cost (USD)
+        label(class="col-xs-1") Quantity
       form#addProduct
         div.row
-          input#itemName(type="text" class="col-xs-4" required)
-          input#itemCost(type="number" step="0.01" class="col-xs-4" required)
-          input#itemCount(type="number" value="1" step="1" class="col-xs-2" required)
-          input(type="submit" class="col-xs-2" required)
-  div#totalCost
-    h3 Total: 
-    h3#totalAmount jQuery/Jade Magic
+          input#itemName(type="text" class="col-xs-3" value=item.name placeholder=item.name required)
+          input#itemDesc(type="text" class="col-xs-3" value=item.desc placeholder=item.desc required)
+          input#itemCost(type="number" step="0.01" class="col-xs-3" value=item.cost placeholder=item.cost required)
+          input#itemCount(type="number" step="1" class="col-xs-1" value=item.count placeholder=item.count required)
+          input(type="submit" class="col-xs-2" value="Update" required)
   div.container
-    ul#productList
-      li.no-select Test Li
-      li.no-select Test Li
-      li.no-select Test Li
-      li.no-select Test Li
-      li.no-select Test Li
+    ul#item
+      li.no-select(class="col-xs-3") Name: #{item.name}
+      li.no-select(class="col-xs-3") Desc: #{item.desc}
+      li.no-select(class="col-xs-3") Cost: #{item.cost}
+      li.no-select(class="col-xs-3") Count: #{item.count}
+    a(href="/")
+      button(value="Back to List") Back to List
   
 block scripts
   script(type="text/javascript", src="/javascripts/product.js")

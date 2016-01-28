@@ -1,15 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require("mongoose");
-
-mongoose.connect("mongodb://localhost/products");
-
-var Item = mongoose.model("Item", {
-  name: String,
-  desc: String,
-  cost: Number,
-  count: Number
-});
+var Item = require("../models/item.js");
 
 router.post("/", function(req, res, next){
   console.log("req.body:", req.body);
@@ -30,8 +22,10 @@ router.post("/", function(req, res, next){
 
 /* GET home page. */
 router.get('/:productId', function(req, res, next) {
-  //do stuff
-  res.render('product', { id: req.body });
+  Item.findById(req.params.productId, function(err, item){
+    if(err) return console.error(err);
+    res.render('product', {'item': item});
+  });
 });
 
 router.put("/:productId", function(req, res, next){
