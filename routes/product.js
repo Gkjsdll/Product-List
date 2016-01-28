@@ -4,8 +4,6 @@ var mongoose = require("mongoose");
 var Item = require("../models/item.js");
 
 router.post("/", function(req, res, next){
-  console.log("req.body:", req.body);
-
   var newItem = new Item({
     name: req.body.name,
     desc: req.body.desc,
@@ -20,7 +18,6 @@ router.post("/", function(req, res, next){
 
 })
 
-/* GET home page. */
 router.get('/:productId', function(req, res, next) {
   Item.findById(req.params.productId, function(err, item){
     if(err) return console.error(err);

@@ -5,10 +5,10 @@ var mongoose = require("mongoose")
 var Item;
 
 var itemSchema = mongoose.Schema({
-  name: String,
-  desc: String,
-  cost: Number,
-  count: Number
+  name: {type: String},
+  desc: {type: String},
+  cost: {type: Number},
+  count: {type: Number}
 });
 
 Item = mongoose.model("Item", itemSchema);

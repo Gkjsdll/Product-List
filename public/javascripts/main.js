@@ -18,7 +18,6 @@ function addProduct(e){
     cost: Number($('#itemCost').val()).toFixed(2),
     count: $('#itemCount').val()})
   .success(function(data){
-    console.log("success:", data);
     var newItem = $("<li>").data("id", data._id);
     var newItemContents = $('<div>').addClass("row");
     newItemContents.append($('<p>').text(data.name).addClass("col-xs-3"));
@@ -36,5 +35,5 @@ function addProduct(e){
 function productClick(e){
   e.stopPropagation();
   var id = $(this).closest('li').data("id");
-  location.href = "/product/"+id.slice(1, -1);
+  location.href = "/product/"+id;
 }

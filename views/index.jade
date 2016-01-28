@@ -22,8 +22,7 @@ block content
   div.container
     ul#productList
       each item in items
-        li(data-id= item._id) #{item.name} #{item.desc} #{item.count} #{item.cost}
-      //- autopopulate items with #each li(data-id= item._id) 
+        li(data-id= item.id) #{item.name} #{item.desc} #{item.count} #{item.cost}
   
 block scripts
   script(type="text/javascript", src="/javascripts/main.js")
