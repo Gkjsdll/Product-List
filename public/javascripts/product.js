@@ -39,9 +39,6 @@ function deleteItem(){ //change this to prompt for confirmation if there is time
     method: "DELETE"
   })
   .success(function(){
-    for(var i = 0; i < arguments.length; i++){
-      console.log("arg",i+":",arguments[i]);
-    }
     location.href = "/";
   })
   .fail(function(err){

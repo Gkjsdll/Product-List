@@ -1,11 +1,12 @@
 "use strict";
 
-var $productList;
+var $productList, $total;
 
 $(document).ready(init);
 
 function init(){
   $productList = $("#productList");
+  $total = $("#totalAmount");
   $('#addProduct').submit(addProduct);
   $productList.on("click", "li", productClick);
 }
@@ -22,10 +23,12 @@ function addProduct(e){
     var newItemContents = $('<div>').addClass("row");
     newItemContents.append($('<p>').text(data.name).addClass("col-xs-3"));
     newItemContents.append($('<p>').text(data.desc).addClass("col-xs-3"));
-    newItemContents.append($('<p>').text(data.cost).addClass("col-xs-3"));
+    newItemContents.append($('<p>').text("$" + Number(data.cost).toFixed(2)).addClass("col-xs-3"));
     newItemContents.append($('<p>').text(data.count).addClass("col-xs-3"));
     newItem.append(newItemContents);
     $productList.append(newItem);
+
+    updateTotal(data.cost);
   })
   .fail(function(err){
     console.log("err:",err);
@@ -37,3 +40,11 @@ function productClick(e){
   var id = $(this).closest('li').data("id");
   location.href = "/product/"+id;
 }
+
+
+function updateTotal(diff){
+  var currTotal = Number($total.text().slice(1));
+  var newTotal = currTotal + diff;
+  $total.text("$" + newTotal.toFixed(2));
+  return newTotal;
+};

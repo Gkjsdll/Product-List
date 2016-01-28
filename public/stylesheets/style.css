@@ -55,6 +55,7 @@ input:focus {
 #productList {
   list-style: none;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px 0px 0px 0px;
 }
 
 #productList li:hover {
@@ -64,6 +65,7 @@ input:focus {
 
 #productList li {
   font-size: 14px;
+  text-align: center;
 }
 
 #productList p {
@@ -79,4 +81,9 @@ input:focus {
   padding: 0px 0px 0px 0px;
   margin: 0px 2px 0px 2px;
   display: inline-block;
+}
+
+#itemHeaders {
+  font-size: 20px;
+  text-align: center;
 }

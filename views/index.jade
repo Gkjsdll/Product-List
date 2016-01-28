@@ -3,31 +3,37 @@ extends layout
 block content
   div.jumbotron
     div.container
-      h2 Add product
-      div.row
+      h2.no-select Add product
+      div.row.no-select
         label(class="col-xs-3") Product Name
         label(class="col-xs-3") Product Description
         label(class="col-xs-3") Cost (USD)
         label(class="col-xs-1") Quantity
-      form#addProduct
+      form#addProduct.no-select
         div.row
           input#itemName(type="text" class="col-xs-3" required)
           input#itemDesc(type="text" class="col-xs-3" required)
-          input#itemCost(type="number" step="0.01" class="col-xs-3" required)
-          input#itemCount(type="number" value="1" step="1" class="col-xs-1" required)
+          input#itemCost(type="number" step="0.01" class="col-xs-3" min="0" required)
+          input#itemCount(type="number" value="1" step="1" class="col-xs-1" min="1" required)
           input(type="submit" class="col-xs-2" required)
-  div#totalCost
+  div#totalCost.no-select
     h3 Total: 
-    h3#totalAmount jQuery/Jade Magic
+    h3#totalAmount
+      = "$" + Number(items.reduce(function(prev, curr, index, array) {return prev + curr.cost * curr.count;}, 0)).toFixed(2)
   div.container
+    div#itemHeaders.row.no-select
+      p.col-xs-3 Name
+      p.col-xs-3 Description
+      p.col-xs-3 Cost
+      p.col-xs-3 Count
     ul#productList
       each item in items
-        li(data-id= item.id)
+        li(data-id= item.id).no-select
           div.row
             p.col-xs-3 #{item.name}
             p.col-xs-3 #{item.desc}
+            p.col-xs-3 $#{Number(item.cost).toFixed(2)}
             p.col-xs-3 #{item.count}
-            p.col-xs-3 #{item.cost}
   
 block scripts
   script(type="text/javascript", src="/javascripts/main.js")
