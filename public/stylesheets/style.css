@@ -62,6 +62,10 @@ input:focus {
   cursor: pointer;
 }
 
+#productList li {
+  font-size: 14px;
+}
+
 #productList p {
   display: inline-block;;
 }

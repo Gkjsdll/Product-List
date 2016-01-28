@@ -7,6 +7,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+#item li {
+  color: black;
+  cursor: default;
+}
+
 #item li:hover {
   color: black;
   cursor: default;

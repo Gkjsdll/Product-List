@@ -8,11 +8,12 @@ router.get('/', function(req, res, next) {
   var itemsData;
   Item.find(function(err, existingItems) {
     if (err) return console.error(err)
+    console.log("Existing items:", existingItems);
     itemsData = existingItems;
-  });
-  res.render('index', {
-    title: 'Product List',
-    items: itemsData
+    res.render('index', {
+      title: 'Product List',
+      items: itemsData
+    });
   });
 });
 

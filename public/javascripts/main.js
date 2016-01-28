@@ -36,5 +36,5 @@ function addProduct(e){
 function productClick(e){
   e.stopPropagation();
   var id = $(this).closest('li').data("id");
-  location.href = "/product/"+id;
+  location.href = "/product/"+id.slice(1, -1);
 }

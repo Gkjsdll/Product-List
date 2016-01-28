@@ -21,6 +21,8 @@ block content
     h3#totalAmount jQuery/Jade Magic
   div.container
     ul#productList
+      each item in items
+        li(data-id= item._id) #{item.name} #{item.desc} #{item.count} #{item.cost}
       //- autopopulate items with #each li(data-id= item._id) 
   
 block scripts
