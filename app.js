@@ -6,9 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/products");
 
 var app = express();
+
+mongoose.connect(preocess.env.MONGOLAB_URI || "mongodb://localhost/products");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
